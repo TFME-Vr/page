@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda - Competição de Foguetes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px;
+            border-bottom: 1px solid #555;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            float: right;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #f2f2f2;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e68a58;
+        }
+
+        .content-container {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .help-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .help-info h2 {
+            color: #944c14;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            color: #797b7c;
+        }
+
+        .contact-info strong {
+            color: #4CAF50; /* Verde */
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin-right: 15px;
+            color: #333;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #4CAF50; /* Verde */
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                background-color: #333;
+                z-index: 1;
+                margin-top: 15px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                padding: 10px 0;
+                border-bottom: 1px solid #555;
+            }
+
+            .menu-icon {
+                display: block;
+                cursor: pointer;
+                color: #fff;
+                font-size: 24px;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .nav-links {
+                display: flex !important; /* Garante que os links sejam exibidos em telas maiores */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <img src="logo.png" alt="Logo"> <!-- Substitua com o caminho da sua imagem -->
+            <a href="index.html">I TFME 2024</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Inscreva-se</a></li>
+            <li><a href="list.html">Lista de competidores</a></li>
+            <li><a href="#">Edital</a></li>
+            <li><a href="ajuda.html">Ajuda</a></li>
+        </ul>
+    </div>
+
+    <div class="content-container">
+        <div class="help-info">
+            <h2>Ajuda - Competição de Foguetes</h2>
+            <p>Se precisar de assistência ou tiver alguma dúvida, entre em contato conosco.</p>
+            <div class="contact-info">
+                <p><strong>E-mail:</strong> jefersonadrianohorn@gmail.com                </p>
+                <p><strong>Número de Telefone:</strong> +55 (66)981188360 </p>
+            </div>
+            <div class="social-icons">
+                <a href="https://api.whatsapp.com/send?phone=5566981188360&text=Ola,%20estou%20com%20uma%20d%C3%BAvida/%20problema%20na%20competi%C3%A7%C3%A3o%20de%20foguetes." target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/jjefersonadriano/" target="_blank"><i class="fab fa-instagram"></i></a>
+             
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        window.addEventListener('resize', function () {
+            const navLinks = document.querySelector('.nav-links');
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+
+</html>

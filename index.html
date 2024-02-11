@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competição de Foguetes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+ <style>
+
+.area{
+    margin-bottom: 50px;
+}
+
+
+.logo img {
+    width: 60px;
+    height: 60px;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #bcbcbc;
+
+        }
+
+        .slider {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.slide img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+    max-height: 100%; /* Garante que a imagem não ultrapasse a altura do contêiner */
+    width: auto;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Add this style for the disabled button */
+.button.disabled {
+    background-color: #ccc; /* Change the color to your desired gray shade */
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+        .competition-info {
+    padding: 20px;
+    text-align: center;
+    background-color: #f1770a;
+    color: #fff;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.competition-info h2 {
+    margin-bottom: 10px; /* Adiciona margem inferior para separar o título */
+}
+
+.competition-info .typing-effect {
+    margin-top: 20px; /* Adiciona margem superior ao elemento com a classe typing-effect */
+}
+
+.competition-info .button {
+    margin-top: 20px; /* Adiciona margem superior ao botão */
+}
+
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fcc494;
+            color: #944c14;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button i {
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background-color: #e6b580;
+        }
+        .description {
+    padding: 10px;
+    background-color: #797b7c;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.description > * {
+    margin-bottom: 10px;
+}
+
+
+        .action-buttons {
+            text-align: center;
+        }
+
+        .action-buttons button {
+            padding: 10px 20px;
+            background-color: #f1770a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .action-buttons button:hover {
+            background-color: #e68a58;
+        }
+
+
+        .login:hover {
+            background-color: #e68a58;
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .circle {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            max-width: 200px; /* Adicionado para limitar o tamanho máximo */
+            max-height: 200px; /* Adicionado para limitar o tamanho máximo */
+            margin: 10px;
+            object-fit: cover;
+            border: 2px solid #f1770a;
+        }
+
+        figure {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            margin: 5px;
+        }
+
+      
+
+
+        .menu-icon {
+    display: block;
+    cursor: pointer;
+    color: #180f0f; /* Código de cor cinza */
+    font-size: 0px;
+}
+
+        .navbar {
+    background-color: #333;
+    overflow: hidden;
+    height: 80px; /* Ajuste a altura desejada */
+}
+
+.navbar .logo {
+    float: left;
+    margin-right: 20px; /* Ajuste a margem conforme necessário */
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #f2f2f2;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e68a58;
+}
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        background-color: #333;
+        z-index: 1;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid #555;
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        color: #fff;
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .nav-links {
+        display: flex !important; /* Garante que os links sejam exibidos em telas maiores */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="area">
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <img src="logo.png" alt="Logo"> <!-- Substitua com o caminho da sua imagem -->
+            <a href="index.html">I TFME 2024</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="form.html">Inscreva-se</a></li>
+            <li><a href="list.html">Lista de competidores</a></li>
+            <li><a href="edital.html">Edital</a></li>
+            <li><a href="ajuda.html">Ajuda</a></li>
+        </ul>
+    </div>
+    
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide"><img src="TFME (1).png" alt="Imagem 1"></div>
+
+    </div>
+
+</div>
+
+<div class="competition-info">
+    <h2>Competição de Foguetes</h2>
+    <div id="countdown" class="typing-effect"></div>
+    <a class="button" href="form.html"><i class="fas fa-pencil-alt"></i> Inscreva-se</a>
+</div>
+
+<div class="description">
+   
+   
+   
+    <h1>Regras Gerais </h1>
+    <div>
+        <figure>
+            <img src="pessoas.png" alt="Foto 1" class="circle">
+            <figcaption class="caption"> Grupos de 3 a 4 membros</figcaption>
+        </figure>
+        <figure>
+            <img src="do-utilizador.png" alt="Foto 2" class="circle">
+            <figcaption class="caption">Um pitch  com duraçao duração de 3 a 5 minutos.</figcaption>
+        </figure>
+        <figure>
+            <img src="video-icon.png" alt="Foto 3" class="circle">
+            <figcaption class="caption">Um vídeo sobre o desenvolvimento de 10 minutos</figcaption>
+        </figure>
+        <figure>
+            <img src="rocket-launch.png" alt="Foto 4" class="circle">
+            <figcaption class="caption"></figcaption>
+            <figcaption class="caption">Um foguete lançável para o evento </figcaption>
+
+        </figure>
+    </div> 
+</div>
+
+<div class="action-buttons">
+    <button onclick="window.location.href='edital.html'"><i class="fas fa-paperclip"></i> Acessar Edital</button>
+    <button onclick="window.location.href='ajuda.html'"><i class="fas fa-hand-paper"></i> Pedir Ajuda</button>
+</div>
+
+    </div>
+
+<div class="footer">
+    <!-- Conteúdo do rodapé -->
+    <p>TFME Torneio de Foguetes Militares Escolares-2024</p>
+</div>
+<script>
+    const phrases = [
+        "explorar novas alturas",
+        "descobrir seu potencial",
+        "desenvolver habilidades únicas",
+        "construir foguetes incríveis",
+        "trabalhar em equipe",
+        "alcançar o infinito e além",
+        "transformar ideias em realidade",
+        "viver a emoção do espaço",
+        "desbravar novos horizontes",
+        "inspirar-se na ciência e na inovação",
+    ];
+
+    const dynamicText = document.getElementById("dynamic-text");
+
+    function typeWriter() {
+        let index = 0;
+
+        function addText() {
+            dynamicText.textContent += phrases[index];
+            index = (index + 1) % phrases.length;
+        }
+
+        setInterval(() => {
+            dynamicText.textContent = "Participando, você vai: ";
+            setTimeout(() => {
+                addText();
+            }, 0);
+        }, 3000);
+    }
+
+    typeWriter();
+
+
+   
+    function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('show');
+}
+
+// Adicione esta parte para esconder o menu em telas maiores
+window.addEventListener('resize', function () {
+    const navLinks = document.querySelector('.nav-links');
+    if (window.innerWidth > 768) {
+        navLinks.classList.remove('show');
+    }
+});
+    // Your existing code...
+
+    const countdownElement = document.getElementById("countdown");
+    const inscricaoButton = document.querySelector('.button');
+
+    function updateCountdown() {
+        const targetDate = new Date("2024-05-01T00:00:00"); // Set your deadline date and time
+        const now = new Date();
+
+        if (now > targetDate) {
+            // If the deadline has passed
+            countdownElement.textContent = "";
+            inscricaoButton.textContent = "Inscrições Encerradas 😥";
+            inscricaoButton.classList.add('disabled');
+            inscricaoButton.href = "#"; // Set the href to "#" or remove the link
+        } else {
+            // If there is still time remaining
+            const timeDifference = targetDate - now;
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            countdownElement.textContent = `Inscrições terminam em: ${days} dias ${hours} horas ${minutes} minutos ${seconds} segundos`;
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+
+
+    // Your existing code...
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição - Competição de Lançamento de Foguetes</title>
+    <link rel="stylesheet" href="formstyles.css">
+
+</head>
+
+<body>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="TFME (1).png" alt="Imagem 1"></div>
+    
+        </div>
+
+    <h2 style="text-align: center;">Formulário de Inscrição</h2>
+
+    <form id="rocketForm" method="get" action="exibir-dados.html">
+        <label for="nome_equipe">Nome da Equipe:</label>
+        <input type="text" id="nome_equipe" name="nome_equipe" required>
+
+        <!-- Bloco para cada aluno -->
+        <div class="student-block">
+            <h3>Aluno 1 (Lider)</h3>
+            <label for="nome_aluno1">Nome do Aluno:</label>
+            <input type="text" id="nome_aluno1" name="nome_aluno1" required>
+
+            <label for="serie_aluno1">Série:</label>
+            <select id="serie_aluno1" name="serie_aluno1" required>
+                <option value="" disabled selected>Selecionar</option>
+                <option value="6EF">6º Ano - Fundamental</option>
+                <option value="7EF">7º Ano - Fundamental</option>
+                <option value="8EF">8º Ano - Fundamental</option>
+                <option value="9EF">9º Ano - Fundamental</option>
+                <option value="1EM">1º Ano - Médio</option>
+                <option value="2EM">2º Ano - Médio</option>
+                <option value="3EM">3º Ano - Médio</option>
+            </select>
+
+            <label for="email_aluno1">E-mail Institucional:</label>
+            <input type="email" id="email_aluno1" name="email_aluno1" required>
+        </div>
+
+        <div class="student-block">
+            <h3>Aluno 2</h3>
+            <label for="nome_aluno2">Nome do Aluno:</label>
+            <input type="text" id="nome_aluno2" name="nome_aluno2" required>
+
+            <label for="serie_aluno2">Série:</label>
+            <select id="serie_aluno2" name="serie_aluno2" required>
+                <option value="" disabled selected>Selecionar</option>
+                <option value="6EF">6º Ano - Fundamental</option>
+                <option value="7EF">7º Ano - Fundamental</option>
+                <option value="8EF">8º Ano - Fundamental</option>
+                <option value="9EF">9º Ano - Fundamental</option>
+                <option value="1EM">1º Ano - Médio</option>
+                <option value="2EM">2º Ano - Médio</option>
+                <option value="3EM">3º Ano - Médio</option>
+            </select>
+
+            <label for="email_aluno2">E-mail Institucional:</label>
+            <input type="email" id="email_aluno2" name="email_aluno2" required>
+        </div>
+
+        <div class="student-block">
+            <h3>Aluno 3</h3>
+            <label for="nome_aluno3">Nome do Aluno:</label>
+            <input type="text" id="nome_aluno3" name="nome_aluno3" required>
+
+            <label for="serie_aluno3">Série:</label>
+            <select id="serie_aluno3" name="serie_aluno3" required>
+                <option value="" disabled selected>Selecionar</option>
+                <option value="6EF">6º Ano - Fundamental</option>
+                <option value="7EF">7º Ano - Fundamental</option>
+                <option value="8EF">8º Ano - Fundamental</option>
+                <option value="9EF">9º Ano - Fundamental</option>
+                <option value="1EM">1º Ano - Médio</option>
+                <option value="2EM">2º Ano - Médio</option>
+                <option value="3EM">3º Ano - Médio</option>
+            </select>
+
+            <label for="email_aluno3">E-mail Institucional:</label>
+            <input type="email" id="email_aluno3" name="email_aluno3" required>
+        </div>
+
+        <!-- Botões de Adicionar/Remover Aluno -->
+        <div class="add-remove-buttons">
+            <button type="button" class="add-button" onclick="adicionarAluno()">Adicionar Aluno</button>
+            <button type="button" class="remove-button" onclick="removerAluno()" style="display: none;">Remover Aluno</button>
+        </div>
+
+       <!-- Bloco para Aluno 4 (inicialmente oculto) -->
+<div class="student-block" id="aluno4Block" style="display: none;">
+    <h3>Aluno 4</h3>
+    <label for="nome_aluno4">Nome do Aluno:</label>
+    <input type="text" id="nome_aluno4" name="nome_aluno4">
+
+    <label for="serie_aluno4">Série:</label>
+    <select id="serie_aluno4" name="serie_aluno4">
+        <option value="" disabled selected>Selecionar</option>
+        <option value="6EF">6º Ano - Fundamental</option>
+        <option value="7EF">7º Ano - Fundamental</option>
+        <option value="8EF">8º Ano - Fundamental</option>
+        <option value="9EF">9º Ano - Fundamental</option>
+        <option value="1EM">1º Ano - Médio</option>
+        <option value="2EM">2º Ano - Médio</option>
+        <option value="3EM">3º Ano - Médio</option>
+    </select>
+
+    <label for="email_aluno4">E-mail Institucional:</label>
+    <input type="email" id="email_aluno4" name="email_aluno4">
+</div>
+
+
+
+        <!-- Bloco de dados do foguete -->
+        <div class="rocket-block">
+            <h3>Dados do Foguete</h3>
+
+            <label for="nome_foguete">Nome do Foguete:</label>
+            <input type="text" id="nome_foguete" name="nome_foguete" required>
+
+            <label for="tamanho_foguete">Tamanho do Foguete:</label>
+            <input type="text" id="tamanho_foguete" name="tamanho_foguete" required>
+
+        </div>
+
+        
+
+        <input type="submit" value="Enviar Inscrição">
+    </form>
+
+    <script>
+        // Function to save form data to localStorage
+    function salvarDados() {
+        const formData = {
+            nome_equipe: document.getElementById('nome_equipe').value,
+            nome_aluno1: document.getElementById('nome_aluno1').value,
+            serie_aluno1: document.getElementById('serie_aluno1').value,
+            email_aluno1: document.getElementById('email_aluno1').value,
+            // Repita os mesmos passos para os outros alunos e campos do foguete
+            nome_aluno2: document.getElementById('nome_aluno2').value,
+            serie_aluno2: document.getElementById('serie_aluno2').value,
+            email_aluno2: document.getElementById('email_aluno2').value,
+            // ...
+            nome_foguete: document.getElementById('nome_foguete').value,
+            tamanho_foguete: document.getElementById('tamanho_foguete').value,
+        };
+
+        localStorage.setItem('rocketFormData', JSON.stringify(formData));
+    }
+
+    // Function to load saved form data from localStorage
+   // Function to load saved form data from localStorage
+function carregarDados() {
+    const savedFormData = localStorage.getItem('rocketFormData');
+    if (savedFormData) {
+        const formData = JSON.parse(savedFormData);
+
+        document.getElementById('nome_equipe').value = formData.nome_equipe;
+        document.getElementById('nome_aluno1').value = formData.nome_aluno1 || '';
+        document.getElementById('serie_aluno1').value = formData.serie_aluno1 || '';
+        document.getElementById('email_aluno1').value = formData.email_aluno1 || '';
+        // Repita os mesmos passos para os outros alunos e campos do foguete
+        document.getElementById('nome_aluno2').value = formData.nome_aluno2 || '';
+        document.getElementById('serie_aluno2').value = formData.serie_aluno2 || '';
+        document.getElementById('email_aluno2').value = formData.email_aluno2 || '';
+        // ...
+        document.getElementById('nome_foguete').value = formData.nome_foguete || '';
+        document.getElementById('tamanho_foguete').value = formData.tamanho_foguete || '';
+    }
+}
+
+    
+        // Function to add Aluno 4 and display the form
+        function adicionarAluno() {
+            document.getElementById('aluno4Block').style.display = 'block';
+            document.querySelector('.add-button').style.display = 'none';
+            document.querySelector('.remove-button').style.display = 'inline-block';
+        }
+    
+        // Function to remove Aluno 4 and hide the form
+        function removerAluno() {
+            document.getElementById('aluno4Block').style.display = 'none';
+            document.querySelector('.add-button').style.display = 'inline-block';
+            document.querySelector('.remove-button').style.display = 'none';
+        }
+    
+        // Event listener to save form data when the page is unloaded
+        window.addEventListener('beforeunload', salvarDados);
+    
+        // Event listener to load saved form data when the page is loaded
+        window.addEventListener('load', carregarDados);
+    </script>
+    
+</body>
+
+</html>
