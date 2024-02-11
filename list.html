@@ -37,7 +37,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            width: 45%;
+            width: 100%; /* Alterado para ocupar 100% da largura disponível */
             box-sizing: border-box;
             position: relative;
         }
@@ -46,6 +46,12 @@
             font-size: 1.5em;
             font-weight: bold;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .team-info img {
+            max-width: 100%; /* Para garantir que a imagem não ultrapasse a largura da div */
         }
 
         .download-image {
@@ -91,39 +97,41 @@
         }
 
         function createTeamBlock(csvTeamData) {
-    var columns = csvTeamData.split(',');
+            var columns = csvTeamData.split(',');
 
-    var teamBlock = '<div class="team-info">';
+            var teamBlock = '<div class="team-info">';
 
-    teamBlock += '<div class="team-name" style="display: flex; align-items: center;">';
+            teamBlock += '<div class="team-name">';
 
-    teamBlock += (columns[0] || 'Nome não fornecido');
-    
-    // Adiciona imagem ao lado do nome da equipe se houver "ok"
-    if (columns[11] && columns[11].trim().toLowerCase() === 'ok') {
-        teamBlock += '<img src="verificado.png" alt="verificado" style="width: 30px; height: 30px; margin-left: 10px;">';
-    }
+            teamBlock += (columns[0] || 'Nome não fornecido');
 
-    teamBlock += '<img src="logo.png" alt="" style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px; margin-left: 10px;">';
-    teamBlock += '</div>';
-    teamBlock += '<p><strong>Líder:</strong> ' + (columns[1] || 'Não especificado') + '</p>';
-    teamBlock += '<p><strong>Série:</strong> ' + (columns[2] || 'Não especificado') + '</p>';
-    teamBlock += '<p><strong>Aluno 2ª Série:</strong> ' + (columns[3] || 'Não especificado') + '</p>';
-    teamBlock += '<p><strong>Série:</strong> ' + (columns[4] || 'Não especificado') + '</p>';
-    teamBlock += '<p><strong>Aluno 3ª Série:</strong> ' + (columns[5] || 'Não especificado') + '</p>';
-    teamBlock += '<p><strong>Série:</strong> ' + (columns[6] || 'Não especificado') + '</p>';
-    teamBlock += '<p><strong>Aluno 4ª Série:</strong> ' + (columns[7] || 'Não especificado') + '</p>';
-    teamBlock += '<p><strong>Série:</strong> ' + (columns[8] || 'Não especificado') + '</p>';
-    teamBlock += '<h3>Dados do Foguete</h3>';
-    teamBlock += '<p><strong>Nome do Foguete:</strong> ' + (columns[9] || 'Não especificado') + '</p>';
-    teamBlock += '<p><strong>Tamanho:</strong> ' + (columns[10] || 'Não especificado') + '</p>';
+            // Adiciona imagem ao lado do nome da equipe se houver "ok"
+            if (columns[11] && columns[11].trim().toLowerCase() === 'ok') {
+                teamBlock += '<img src="verificado.png" alt="verificado" style="width: 30px; height: 30px; margin-left: 10px;">';
+            }
 
-    teamBlock += '<img class="download-image" src="icons8-copiar-96.png" onclick="downloadTeamBlock(this)" alt="Download">';
+            teamBlock += '</div>';
 
-    teamBlock += '</div>';
-    return teamBlock;
-}
+            // Posiciona o "logo.png" no canto superior direito com 5px de margem
+            teamBlock += '<img src="logo.png" alt="" style="position: absolute; top: 5px; right: 5px; width: 40px; height: 40px;">';
 
+            teamBlock += '<p><strong>Líder:</strong> ' + (columns[1] || 'Não especificado') + '</p>';
+            teamBlock += '<p><strong>Série:</strong> ' + (columns[2] || 'Não especificado') + '</p>';
+            teamBlock += '<p><strong>Aluno 2ª Série:</strong> ' + (columns[3] || 'Não especificado') + '</p>';
+            teamBlock += '<p><strong>Série:</strong> ' + (columns[4] || 'Não especificado') + '</p>';
+            teamBlock += '<p><strong>Aluno 3ª Série:</strong> ' + (columns[5] || 'Não especificado') + '</p>';
+            teamBlock += '<p><strong>Série:</strong> ' + (columns[6] || 'Não especificado') + '</p>';
+            teamBlock += '<p><strong>Aluno 4ª Série:</strong> ' + (columns[7] || 'Não especificado') + '</p>';
+            teamBlock += '<p><strong>Série:</strong> ' + (columns[8] || 'Não especificado') + '</p>';
+            teamBlock += '<h3>Dados do Foguete</h3>';
+            teamBlock += '<p><strong>Nome do Foguete:</strong> ' + (columns[9] || 'Não especificado') + '</p>';
+            teamBlock += '<p><strong>Tamanho:</strong> ' + (columns[10] || 'Não especificado') + '</p>';
+
+            teamBlock += '<img class="download-image" src="icons8-copiar-96.png" onclick="downloadTeamBlock(this)" alt="Download">';
+
+            teamBlock += '</div>';
+            return teamBlock;
+        }
 
         function downloadTeamBlock(image) {
             var teamInfo = $(image).parent();
